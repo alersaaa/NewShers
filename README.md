@@ -7,6 +7,6 @@
 * 二面时间为2019.9.28，任务完成周期为两周，请大家在9.27 20:00前将作品打包后发至邮箱1362797551@qq.com。
 * 最后请注意作品不包含任何违法内容。
 ### Third 推荐资源
-* 菜鸟教程 HTML教程 https://www.runoob.com/html/html-tutorial.html
+* 菜鸟教程 https://www.runoob.com/
 * w3school教程 https://www.w3school.com.cn/
 * 这两个网站资源比较全面且易学，希望大家尽自己所能发掘可用的教程，做出满意的作品。
