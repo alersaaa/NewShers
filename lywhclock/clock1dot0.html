@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset ='utf-8'>
+<title>clock</title>
+</head>
+<body>
+<h1>时钟显示</h1>
+<canvas id="clock1.0" width ="1920" height="768" style ="border:1px solid">您的浏览器不支持 HTML5 canvas 标签</canvas>
+<script type="text/javascript">
+    var ctx;//context简称
+    var width = 1920, height = 768;//用变量整体替换常量，便于修改
+    const N = 50;
+    
+    function init()
+    {
+        var number=0,x=50,y=50,z=80;
+        var canvas =document.getElementById("clock1.0");//寻找要进行文本替换的id
+        ctx = canvas.getContext("2d");//2d方式绘图
+        ctx.fillStyle="#000000";
+        ctx.font = "100px sans-serif";//设置字体
+        var gradient=ctx.createLinearGradient(0,0,width,height);//颜色渐变
+        gradient.addColorStop("0","magenta");
+        gradient.addColorStop("0.5","blue");
+        gradient.addColorStop("1.0","red");
+        ctx.strokeStyle=gradient;//渐变色赋值给strokestyle
+        var d = new Date();
+       /* var year = d.getFullYear();
+        var month = d.getMonth();
+        var date =d.getDate();
+        var hour = d.getHours();
+        var minute = d.getMinutes();
+        var seconds = d.getSeconds();
+        if(month>=0&&month<=9)
+            month = "0"+month
+        if(hour>=0&&hour<=9)
+            hour = "0"+hour
+        
+        var n =0;
+        for (i in year)
+        {
+            drawOne(x+z*n,y,i);
+            n++;
+        }*/
+        
+        str = d.toLocaleTimeString();
+        for (var i=0;i<str.length;i++)
+        {
+            drawOne(x+z*i,y,str[i])
+        }
+    }
+    function drawOne(x,y,number)//七段数码管数字
+    {   
+        ctx.moveTo(x,y);
+        if (number ==0||number ==2 || number == 3|| number == 5||number ==6 ||number ==7 || number == 8||number == 9)
+            ctx.lineTo(x+N,y);
+        else 
+            ctx.moveTo(x+N,y);
+
+        if (number ==0 || number == 1||number ==2 || number == 3||number ==4 ||number == 7||number ==8 || number==9)
+            ctx.lineTo(x+N,y+N);
+        else 
+            ctx.moveTo(x+N,y+N);
+
+        if (number ==0 || number == 1|| number == 3||number ==4 ||number ==5 ||number == 6||number == 7||number ==8 || number==9)
+            ctx.lineTo(x+N,y+2*N);
+        else
+            ctx.moveTo(x+N,y+2*N);
+        
+        if (number ==0 || number == 2|| number == 3||number ==5 ||number == 6||number ==8 || number==9)
+            ctx.lineTo(x,y+2*N);
+        else
+            ctx.moveTo(x,y+2*N);
+        
+        if (number ==0 || number == 2|| number == 6||number ==8)
+            ctx.lineTo(x,y+N);
+        else
+            ctx.moveTo(x,y+N);
+        
+        if (number ==0 || number ==4 ||number == 5||number == 6 || number==8 || number == 9)
+            ctx.lineTo(x,y);
+        else
+            ctx.moveTo(x,y);
+        ctx.stroke();
+        ctx.moveTo(x,y+N)
+        if (number ==2 || number == 5|| number == 3||number ==4 ||number == 6||number ==8 || number==9)
+            ctx.lineTo(x+N,y+N);
+        else
+            ctx.moveTo(x+N,y+N);
+        ctx.stroke();
+    }
+    function clean(x,y,width,heightS)//用背景色填充，清空
+    {
+           
+            ctx.fillStyle="#000000";  
+            ctx.beginPath();  
+            ctx.fillRect(0,0,width,height);  
+            ctx.closePath();  
+    }
+    setInterval(function () {//每隔1s的计时事件
+        clean(0,0,width,height);
+        init();//一定先清除后
+        
+},1000 )//1000ms从而表示时钟的效果
+
+    window.onload(init(),true);//当页面加载（包括文本和图像）完毕后，调用init函数，再调用setinterval
+</script>
+</body>
+</html>

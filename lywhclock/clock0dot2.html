@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset ='utf-8'>
+<title>clock</title>
+</head>
+<body>
+
+    <h1>时钟显示</h1>
+    <canvas id="clock0.2" width ="1280" height="1024" style ="border:1px solid">您的浏览器不支持 HTML5 canvas 标签</canvas>//设置canvas标签
+    <script type="text/javascript">
+        
+        var ctx;//context简称
+        function init()//起始函数，调用draw和clean
+        {
+            var canvas = document.getElementById('clock0.2');//寻找要进行文本替换的id
+            ctx = canvas.getContext("2d");//2d方式绘图
+            ctx.font = "100px sans-serif";//设置字体
+        
+            draw();
+            clean();
+        }
+        function draw()
+        {
+            var d = new Date();
+            var str = d.toLocaleString();//获取本地系统时间
+            ctx.strokeText(str, 10, 200)//无填充色的文本
+        }
+        function clean()//用背景色填充，清空
+        {
+            ctx.fillStyle = "white";
+            ctx.fillRect(0,0,1280,1024);//调整坐标与分辨率
+        }
+        setInterval(function () {//设置匿名函数调用
+                clean();
+                draw();
+        }, )//1000ms
+        window.onload(init(),true);//当页面加载（包括文本和图像）完毕后，调用init函数
+</script>
+</body>
+</html>

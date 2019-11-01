@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset ='utf-8'>
+<title>clock</title>
+</head>
+<body>
+
+    <h1>时钟显示</h1>
+    <canvas id="clock0.5" width ="1280" height="1024" style ="border:1px solid">您的浏览器不支持 HTML5 canvas 标签</canvas>
+    <script type="text/javascript">
+        
+        var ctx;//context简称
+        var width = 1280,height =1024 ;//用变量整体替换常量，便于修改
+        function init()//起始函数，设置画板，调用draw和clean
+        {
+            var canvas = document.getElementById('clock0.5');//寻找要进行文本替换的id
+            ctx = canvas.getContext("2d");//2d方式绘图
+            ctx.font = "100px sans-serif";//设置字体
+        
+            draw();
+            clean();
+        }
+        function draw()
+        {
+            var d = new Date();
+            var str = d.toLocaleString();//获取本地系统时间
+            var gradient=ctx.createLinearGradient(0,0,width,height);//颜色渐变
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            ctx.strokeStyle=gradient;//渐变色赋值给strokestyle
+            ctx.strokeText(str, 10, 200)//无填充色的文本
+        }
+        function clean()//用背景色填充，清空
+        {
+            ctx.fillStyle = "white";
+            ctx.fillRect(0,0,width,height);//调整坐标与分辨率
+        }
+        setInterval(function () {//每隔1s的计时事件
+                clean();
+                draw();//一定先清除后draw
+                
+        }, )//1000ms从而表示时钟的效果
+       
+        window.onload(init(),true);//当页面加载（包括文本和图像）完毕后，调用init函数，再调用setinterval
+</script>
+</body>
+</html>
