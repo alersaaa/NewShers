@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+        .clock-container{
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: black;
+        }
+
+        .number{
+            position: relative;
+
+            width: 200px;
+            height: 300px;
+
+            margin: 0 30px;
+
+            box-sizing: border-box;
+        }
+
+        .slice{
+            position: absolute;
+            display: flex;
+            width: 100%;
+            height: 30px;
+            box-sizing: border-box;
+            background-color: yellowgreen;
+        }
+        .triangle{
+            width: 0;
+            height: 0;
+            border: 15px solid;
+            border-color: black transparent black black;
+        }
+        .rect{
+            flex: 1;
+            height: 100%;
+
+            background-color: transparent;
+        }
+
+        .slice-1{
+            transform-origin: 0 center;
+            transform: rotate(90deg);
+        }
+        
+        .slice-2{
+            transform-origin: 100% center;
+            transform: rotate(-90deg);
+        }
+
+        .slice-3{
+            transform: translate(0, 200px);
+        }
+
+        .slice-4{
+            transform-origin: 0 center;
+            transform: translate(0, 200px) rotate(90deg);
+        }
+
+        .slice-5{
+            transform-origin: 100% center;
+            transform: translate(0, 200px) rotate(-90deg);
+        }
+
+        .slice-6{
+            transform: translate(0, 400px);
+        }
+
+
+        .rotate-180{
+            transform: rotate(180deg);
+        }
+
+        .scale{
+            transform: scale(0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clock-container">
+        <div class="number" id = "n0">
+            <div class="slice" id = "n0_0">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-1" id = "n0_1">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-2" id = "n0_2">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-3" id = "n0_3">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-4" id = "n0_4">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-5" id = "n0_5">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-6" id = "n0_6">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+        </div>
+
+                
+        <div class="number" id = "n1">
+            <div class="slice"  id = "n1_0">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-1" id = "n1_1">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-2"  id = "n1_2">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-3"  id = "n1_3">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-4"  id = "n1_4">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-5"  id = "n1_5">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-6"  id = "n1_6">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+        </div>
+
+        <div class="number" id = "n2">
+            <div class="slice" id = "n2_0">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-1"  id = "n2_1">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-2"  id = "n2_2">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-3" id = "n2_3">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-4" id = "n2_4">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-5" id = "n2_5">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-6" id = "n2_6">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+        </div>
+
+        <div class="number scale" id = "n3">
+            <div class="slice" id = "n3_0">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-1" id = "n3_1">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-2" id = "n3_2">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-3" id = "n3_3">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-4" id = "n3_4">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-5" id = "n3_5">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+
+            <div class="slice slice-6" id = "n3_6">
+                <div class="triangle"></div>
+                <div class="rect"></div>
+                <div class="triangle rotate-180"></div>
+            </div>
+        </div>
+    </div>
+    <h1 id = "x"></h1>
+    <script src = "clock.js"></script>
+</body>
+</html>
